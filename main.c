@@ -42,7 +42,7 @@ if(argv[2]!=NULL&&strcmp(argv[1],"-h"))
 
 
 			char string[100];
-			sprintf(string,"mkdir %s && %sfill -n > %s/%s.%s",argv[2],argv[1],argv[2],argv[3],argv[1]);
+			sprintf(string,"mkdir %s && ./%sfill -n > %s/%s.%s",argv[2],argv[1],argv[2],argv[3],argv[1]);
 			system(string);
 				if(argc>=5)
 				{
