@@ -1,0 +1,73 @@
+#!/bin/sh
+text="#!/bin/sh
+
+
+#Welcome
+
+#[ ] && echo 
+
+#if [ ];then
+#
+#fi
+"
+text2="
+#!/bin/sh
+
+
+#Welcome
+
+while getopts ":h" option; do 
+	case $option in
+	h) echo 'help'
+	exit;;
+esac
+done
+"
+
+
+#checking if the user typed a second arg to create a new file
+#[ "$2" != "" ]&&touch $2
+
+if [ "$1" == "-n" ]; then 
+	if [ "$2" != "" ]; then 
+		echo "$text" > $2
+	else
+	echo "$text"
+	fi
+elif [ "$1" == "-np" ]; then 
+	if [ "$2" != "" ]; then 
+		echo "$text2" > $2
+	else	
+	echo "$text2" 
+	fi
+fi
+
+
+#GET OPTIONS
+
+while getopts ":h" option; do 
+	case $option in
+	h)
+echo 'Welcome to the sh filler please choose what you want carefully'
+	       	echo '
+		first args:
+
+		-n	create a normal sh file
+		-np	create a normal sh file with options scripts 
+
+		second args:
+		"nameofthefile"
+		
+		example:
+		just print:
+
+		shfill -n >> script
+
+		print and make a file(or overwrite the file):
+
+		shfill -n script
+		'
+	exit;;
+esac
+done
+
