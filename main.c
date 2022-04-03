@@ -49,7 +49,7 @@ if(argv[2]!=NULL&&strcmp(argv[1],"-h"))
 
 
 			char string[100];
-			sprintf(string,"mkdir %s && cat  .res/%s > %s/%s",argv[2],argv[1],argv[2],argv[3]);
+			sprintf(string,"mkdir %s && cat  ~/.res/%s > %s/%s",argv[2],argv[1],argv[2],argv[3]);
 			system(string);
 				if(argc>=5)
 				{
