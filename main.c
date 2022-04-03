@@ -6,16 +6,23 @@ especially for C
 might work for py
 it will work with sh
 
------------------------THIS CODE THINKS THAT YOU HAVE THE { cfill , pyfill , shfill  } COMMANDS IN YOUR BIN DIRECTORY
+ok but how does this code work?
+it only calls system commands and creates a dir and inside that dir it will create the (c,sh,py...etc) file that you want and will add the code into that file  and it in the last you can add your own empty files
+
+thats it
+
+optionally you can add more options of writing strings to the mainfile by going to ~/.res or if you didnt install it yet workplacecreator/.res 
+
+"alright that is cool but how can i use this?"
+
+example:
+	mkwp [the strings you wanna write to the main file] [main dir] [mainfile] [subfiles...]
+	mkwp c myfolder main.c README.md
 
 
+THO:
+C- If this program detected that you wanna make a c file it will make Makefile and add the build commands into it to make building C source codes easier.
 
-
-
-----------------------inshaAllah i will make a one with thinking you have these sh scripts in the same dir----------
-
-
-may continue this project
 
 
 */
@@ -42,7 +49,7 @@ if(argv[2]!=NULL&&strcmp(argv[1],"-h"))
 
 
 			char string[100];
-			sprintf(string,"mkdir %s && ./%sfill -n > %s/%s.%s",argv[2],argv[1],argv[2],argv[3],argv[1]);
+			sprintf(string,"mkdir %s && cat  .res/%s > %s/%s",argv[2],argv[1],argv[2],argv[3]);
 			system(string);
 				if(argc>=5)
 				{
@@ -60,6 +67,8 @@ if(argv[2]!=NULL&&strcmp(argv[1],"-h"))
 
 
 				}
+				//if the option he/she chose was C
+				//add a Makefile for him/her
 				if(!strcmp(argv[1],"c"))
 				{
 				char makefile[100];
